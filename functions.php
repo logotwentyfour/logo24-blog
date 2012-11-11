@@ -32,6 +32,7 @@ add_image_size( 'blog-index@2x', 276, 276, true );
 add_image_size( 'blog-index', 138, 138, true );
 add_image_size( 'work-index@2x', 628, 322, true );
 add_image_size( 'work-index', 314, 161, true );
+add_image_size( 'show-small', 314, 9999, false );
 
 /* 
 to add more sizes, simply copy a line from above 
