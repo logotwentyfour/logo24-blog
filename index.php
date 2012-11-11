@@ -27,6 +27,12 @@
                 # get the thumbnail paths for the normal and retina
                 # blog index images
             
+                $small = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 314,314 ), false, '' );
+                
+                $medium = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 737,737 ), false, '' );
+                
+                $large = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 1474,1474 ), false, '' );
+                
                 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 134,134 ), false, '' );
               
                 $thumb2x = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 268,268 ), false, '' );
@@ -34,19 +40,36 @@
               ?>
             
               <figure>
-               <div data-picture data-alt="<?php the_title(); ?>">
+               <div data-picture data-alt="<?php the_title(); ?> first">
                 
-                <div data-src="<?php echo $thumb[0]; ?>"></div>
+                <?php // First, on the smallest non-retina screens... ?>
+                <div data-src="<?php echo $small[0]; ?>"></div>
+                <?php // First, on the smallest retina screens... ?>
+                <div data-src="<?php echo $medium[0]; ?>" data-media="(min--moz-device-pixel-ratio: 1.3),
+                (-o-min-device-pixel-ratio: 2.6/2),
+                (-webkit-min-device-pixel-ratio: 1.3),
+                (min-device-pixel-ratio: 1.3),
+                (min-resolution: 1.3dppx)"></div>
                 
-                <?php // above 768px on non-retina screens use... ?>
+                
+                <?php // Second, on > 400px non-retina screens... ?>
+                <div data-src="<?php echo $medium[0]; ?>" data-media="(min-width: 25em)"></div>
+                <?php // Second, on > 400px retina screens... ?>
+                <div data-src="<?php echo $large[0]; ?>" data-media="(min--moz-device-pixel-ratio: 1.3) and (min-width: 25em),
+                (-o-min-device-pixel-ratio: 2.6/2) and (min-width: 25em),
+                (-webkit-min-device-pixel-ratio: 1.3) and (min-width: 25em),
+                (min-device-pixel-ratio: 1.3) and (min-width: 25em),
+                (min-resolution: 1.3dppx) and (min-width: 25em)"></div>
+                
+                
+                <?php // Third, on > 786px non-retina screens... ?>
                 <div data-src="<?php echo $thumb[0]; ?>" data-media="(min-width: 48em)"></div>
-                
-                <?php // above 1024px on retina screens use... ?>
-                <div data-src="<?php echo $thumb2x[0]; ?>" data-media="(min--moz-device-pixel-ratio: 1.3) and (min-width: 64em),
-                (-o-min-device-pixel-ratio: 2.6/2) and (min-width: 64em),
-                (-webkit-min-device-pixel-ratio: 1.3) and (min-width: 64em),
-                (min-device-pixel-ratio: 1.3) and (min-width: 64em),
-                (min-resolution: 1.3dppx) and (min-width: 64em)"></div>
+                <?php // Third, on > 768px retina screens... ?>
+                <div data-src="<?php echo $thumb2x[0]; ?>" data-media="(min--moz-device-pixel-ratio: 1.3) and (min-width: 48em),
+                (-o-min-device-pixel-ratio: 2.6/2) and (min-width: 48em),
+                (-webkit-min-device-pixel-ratio: 1.3) and (min-width: 48em),
+                (min-device-pixel-ratio: 1.3) and (min-width: 48em),
+                (min-resolution: 1.3dppx) and (min-width: 48em)"></div>
                 <noscript>
                  <img src="<?php echo $thumb[0]; ?>" alt="<?php the_title(); ?>">
                 </noscript>
