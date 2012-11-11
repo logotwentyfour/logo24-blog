@@ -126,6 +126,9 @@ function bones_scripts_and_styles() {
 
     // modernizr (without media query polyfill)
     wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+    
+    // Fitvids – make videos responsive
+    wp_register_script( 'fitvids', get_stylesheet_directory_uri() . '/library/js/libs/fitvids.js', array(), '2.5.3', false );
 
     // register main stylesheet
     wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
@@ -134,8 +137,10 @@ function bones_scripts_and_styles() {
     wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array(), '', true );
 
     // enqueue styles and scripts
+    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bones-modernizr' );
     wp_enqueue_style( 'bones-stylesheet' );
+    wp_enqueue_script( 'fitvids' );
     wp_enqueue_script( 'bones-js' );
 
   }
