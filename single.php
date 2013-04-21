@@ -17,6 +17,10 @@ get_header(); ?>
 
           <div class="entry-content">
             <?php the_content(); ?>
+            
+            <p class="author-bio">
+              <?php echo get_the_author_meta('description'); ?>
+            </p>
           </div><!-- .entry-content -->
 
         </div>
@@ -27,6 +31,12 @@ get_header(); ?>
               <li class="nav-previous"><?php previous_post_link( '%link', __( '<span>&larr;</span> <i>Previous</i>', 'twentyeleven' ) ); ?></li>
               <li class="nav-next"><?php next_post_link( '%link', __( '<i>Next</i> <span>&rarr;</span>', 'twentyeleven' ) ); ?></li>
             </ul>
+            
+            <h3>The Blog of Logo24</h3>
+            <p class="about-aside">Brought to you by the design-loving folks at <a href="http:logo24.com">Logo24</a>. We write about graphic design, web design and occasionally other things we like.</p>
+            <p class="about-aside">
+              <a href="http://feedburner.google.com/fb/a/mailverify?uri=logo24&amp;loc=en_US">Subscribe by email</a>
+            </p>
           </div>
           
           <div class="tb2">

@@ -11,6 +11,10 @@
 
   <title><?php wp_title(''); ?></title>
 
+  <!-- Author information -->
+  <meta name="author" content="Logo24.com" />
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  
   <!-- Google Chrome Frame for IE -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -66,8 +70,8 @@
         
         <h1>
           <a href="http://logo24.com" title="Return to the home page">
-            LOGO24
-            <img src="<?php bloginfo('template_directory'); ?>/library/images/logo.png" alt="Logofo24">
+            Logo24
+            <img src="<?php bloginfo('template_directory'); ?>/library/images/logo.png" alt="Logo24">
           </a>
         </h1>
         

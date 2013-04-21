@@ -40,7 +40,7 @@
               ?>
             
               <figure>
-               <div data-picture data-alt="<?php the_title(); ?> first">
+               <div data-picture data-alt="<?php the_title(); ?>">
                 
                 <?php // First, on the smallest non-retina screens... ?>
                 <div data-src="<?php echo $small[0]; ?>"></div>
