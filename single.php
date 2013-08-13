@@ -11,18 +11,32 @@ get_header(); ?>
 
         <div class="d1-d4">
 
-          <header class="entry-header d2-d4">
+          <header class="entry-header d2-d4 <?php
+          $posttags = get_the_tags();
+          if ($posttags) {
+            foreach($posttags as $tag) {
+              $the_tag = "tag-".$tag->name;
+              echo $the_tag; 
+            }
+          }
+          ?>">
             <h1 class="entry-title"><?php the_title(); ?></h1>
           </header><!-- .entry-header -->
 
           <div class="entry-content">
             <?php the_content(); ?>
-            
-            <p class="author-bio">
-              <?php echo get_the_author_meta('description'); ?>
-            </p>
           </div><!-- .entry-content -->
-
+          
+          <section class="author-bio all">
+            <div class="info paddy m-all t1 d1">
+              <div>
+                <img src="http://logo24.com/wp-content/themes/logo24-bones/library/images/about-logo24/profile-paddy.jpg" alt="Paddy O’Hanlon avatar">
+              </div>
+            </div>
+            <div class="bio m-all t2 d2-d4">
+              <?php echo get_the_author_meta('description'); ?>
+            </div>
+          </section>
         </div>
 
         <aside role="complementary" class="m-all tb-all d5">
@@ -33,7 +47,7 @@ get_header(); ?>
             </ul>
             
             <h3>The Blog of Logo24</h3>
-            <p class="about-aside">Brought to you by the design-loving folks at <a href="http:logo24.com">Logo24</a>. We write about graphic design, web design and occasionally other things we like.</p>
+            <p class="about-aside">Brought to you by the design-loving folks at <a href="http:logo24.com">Logo24</a>. We write about web and visual design.</p>
             <p class="about-aside">
               <a href="http://feedburner.google.com/fb/a/mailverify?uri=logo24&amp;loc=en_US">Subscribe by email</a>
             </p>
