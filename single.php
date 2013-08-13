@@ -28,12 +28,12 @@ get_header(); ?>
           </div><!-- .entry-content -->
           
           <section class="author-bio all">
-            <div class="info paddy m-all t1 d1">
+            <div class="  m-all t1 d1">
               <div>
-                <img src="http://logo24.com/wp-content/themes/logo24-bones/library/images/about-logo24/profile-paddy.jpg" alt="Paddy O’Hanlon avatar">
+                <?php echo get_avatar( get_the_author_meta( 'ID' ), 135 ); ?>
               </div>
             </div>
-            <div class="bio m-all t2 d2-d4">
+            <div class="m-all t2 d2-d4">
               <?php echo get_the_author_meta('description'); ?>
             </div>
           </section>
